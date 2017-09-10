@@ -1,7 +1,6 @@
 FROM dastudio/archlinuxcn
 
 RUN pacman -Syu --noconfirm xorg xpra-winswitch x11vnc openbox zsh
-RUN useradd -Ums /bin/zsh user
-USER user
+RUN usermod -s /bin/zsh root
 CMD ["zsh"]
-ADD zshrc /home/user/.zshrc
+ADD zshrc /root/.zshrc
