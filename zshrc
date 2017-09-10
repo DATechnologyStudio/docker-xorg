@@ -1,7 +1,10 @@
 if [[ -z $DISPLAY ]]
 then
   xpra start :0
-  while ! cat /home/user/.xpra/:0.log | grep 'xpra is ready' >/dev/null 2>&1 ; do : ; done
+  while ! grep 'xpra is ready' /home/user/.xpra/:0.log >/dev/null 2>&1
+  do
+    sleep 1
+  done
   export DISPLAY=:0
   openbox --replace &
   mkdir ~/.vnc
