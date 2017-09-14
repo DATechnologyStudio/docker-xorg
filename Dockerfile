@@ -1,8 +1,8 @@
 FROM dastudio/archlinuxcn
 
 RUN pacman -Syu --noconfirm xorg xpra-winswitch x11vnc openbox zsh
-COPY zshrc /home/user/.zshrc
 RUN useradd -Ums /bin/zsh user \
-      && chown user:user /home/user/.zshrc
+      && chown user:user /home/user/ -R
 USER user
+COPY zshrc /home/user/.zshrc
 CMD ["zsh"]
