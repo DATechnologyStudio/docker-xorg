@@ -5,4 +5,5 @@ RUN useradd -Ums /bin/zsh user \
       && chown user:user /home/user/ -R
 USER user
 COPY zshrc /home/user/.zshrc
+EXPOSE 5900
 CMD ["zsh"]
